@@ -1,5 +1,6 @@
 package com.example.demo.order;
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,13 +25,13 @@ public class OrderController {
     }
 
     @PostMapping("/api/orders")
-    public Order createOrder(@RequestBody Order order) {
+    public Order createOrder(@Valid @RequestBody Order order) {
         return orderService.createOrder(order);
     }
 
     @PutMapping("/api/orders/{id}")
     public Order updateOrder(@PathVariable Long id,
-                             @RequestBody Order updatedOrder) {
+                             @Valid @RequestBody Order updatedOrder) {
         return orderService.updateOrder(id, updatedOrder);
     }
 

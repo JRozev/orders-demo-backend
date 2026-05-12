@@ -1,6 +1,7 @@
 package com.example.demo.order;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "orders")
@@ -10,8 +11,13 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Order number is required")
     private String orderNumber;
+
+    @NotBlank(message = "Status is required")
     private String status;
+
+    @NotBlank(message = "Applicant name is required")
     private String applicantName;
 
     public Long getId() {
