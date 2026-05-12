@@ -7,19 +7,35 @@ import java.util.List;
 @RestController
 public class OrderController {
 
-    private final OrderRepository orderRepository;
+    private final OrderService orderService;
 
-    public OrderController(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
+    public OrderController(OrderService orderService) {
+        this.orderService = orderService;
     }
 
     @GetMapping("/api/orders")
     public List<Order> getOrders() {
-        return orderRepository.findAll();
+        return orderService.getOrders();
+    }
+
+    @GetMapping("/api/orders/{id}")
+    public Order getOrderById(@PathVariable Long id) {
+        return orderService.getOrderById(id);
     }
 
     @PostMapping("/api/orders")
     public Order createOrder(@RequestBody Order order) {
-        return orderRepository.save(order);
+        return orderService.createOrder(order);
+    }
+
+    @PutMapping("/api/orders/{id}")
+    public Order updateOrder(@PathVariable Long id,
+                             @RequestBody Order updatedOrder) {
+        return orderService.updateOrder(id, updatedOrder);
+    }
+
+    @DeleteMapping("/api/orders/{id}")
+    public void deleteOrder(@PathVariable Long id) {
+        orderService.deleteOrder(id);
     }
 }
