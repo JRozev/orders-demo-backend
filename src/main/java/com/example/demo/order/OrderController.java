@@ -2,7 +2,8 @@ package com.example.demo.order;
 
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
-
+import com.example.demo.order.dto.OrderRequest;
+import com.example.demo.order.dto.OrderResponse;
 import java.util.List;
 
 @RestController
@@ -25,8 +26,29 @@ public class OrderController {
     }
 
     @PostMapping("/api/orders")
-    public Order createOrder(@Valid @RequestBody Order order) {
-        return orderService.createOrder(order);
+    public OrderResponse createOrder(@Valid @RequestBody OrderRequest request) {
+
+        Order order = new Order();
+
+        order.setOrderNumber(request.getOrderNumber());
+        order.setStatus(request.getStatus());
+        order.setApplicantName(request.getApplicantName());
+
+        Order savedOrder = orderService.createOrder(order);
+
+        OrderResponse response = new OrderResponse();
+
+        response.setId(savedOrder.getId());
+        response.setOrderNumber(savedOrder.getOrderNumber());
+        response.setStatus(savedOrder.getStatus());
+        response.setApplicantName(savedOrder.getApplicantName());
+
+        return response;
+    }
+
+    @PostMapping("/api/orders/bulk")
+    public List<Order> createOrders(@RequestBody List<Order> orders) {
+        return orderService.createOrders(orders);
     }
 
     @PutMapping("/api/orders/{id}")

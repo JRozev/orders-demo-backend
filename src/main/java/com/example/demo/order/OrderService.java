@@ -25,6 +25,10 @@ public class OrderService {
         return orderRepository.save(order);
     }
 
+    public List<Order> createOrders(List<Order> orders) {
+        return orderRepository.saveAll(orders);
+    }
+
     public Order updateOrder(Long id, Order updatedOrder) {
         Order order = orderRepository.findById(id).orElseThrow();
 

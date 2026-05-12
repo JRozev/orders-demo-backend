@@ -73,7 +73,7 @@ Open: http://localhost:8088/h2-console
 
 Connection settings:
 
-JDBC URL: jdbc:h2:mem:testdb
+JDBC URL: jdbc:h2:file:./data/testdb
 User Name: sa
 Password: (empty)
 ---
@@ -81,6 +81,29 @@ Password: (empty)
 # Swagger-UI URL
 
 Open: http://localhost:8088/swagger-ui/index.html#/
+
+---
+
+# Database Type
+
+The project currently uses persistent H2 file database storage.
+
+Configured in:
+
+```properties
+spring.datasource.url=jdbc:h2:file:./data/testdb
+```
+
+# Features
+
+Current implemented features:
+
+- CRUD operations for Orders
+- Validation with @Valid and @NotBlank
+- DTO support (OrderRequest / OrderResponse)
+- Swagger/OpenAPI integration
+- H2 file database persistence
+- Bulk order insert endpoint
 
 ---
 
