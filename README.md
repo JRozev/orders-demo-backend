@@ -78,13 +78,16 @@ User Name: sa
 Password: (empty)
 ---
 
+# Swagger-UI URL
+
+Open: http://localhost:8088/swagger-ui/index.html#/
+
+---
+
 # Next Steps
 
 Planned features:
 
-* GET by id
-* PUT update endpoint
-* DELETE endpoint
 * PostgreSQL integration
 * Angular frontend
 * Validation
