@@ -63,7 +63,7 @@ public class OrderController {
     }
 
     @GetMapping("/api/orders/status")
-    public List<Order> getOrdersByStatus(@RequestParam String status) {
+    public List<Order> getOrdersByStatus(@RequestParam OrderStatus status) {
         return orderService.getOrdersByStatus(status);
     }
 

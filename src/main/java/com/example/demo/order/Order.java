@@ -2,6 +2,8 @@ package com.example.demo.order;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 
 @Entity
 @Table(name = "orders")
@@ -14,8 +16,8 @@ public class Order {
     @NotBlank(message = "Order number is required")
     private String orderNumber;
 
-    @NotBlank(message = "Status is required")
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
 
     @NotBlank(message = "Applicant name is required")
     private String applicantName;
@@ -28,7 +30,7 @@ public class Order {
         return orderNumber;
     }
 
-    public String getStatus() {
+    public OrderStatus getStatus() {
         return status;
     }
 
@@ -44,7 +46,7 @@ public class Order {
         this.orderNumber = orderNumber;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(OrderStatus status) {
         this.status = status;
     }
 

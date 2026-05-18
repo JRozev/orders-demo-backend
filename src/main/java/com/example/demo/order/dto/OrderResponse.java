@@ -1,12 +1,14 @@
 package com.example.demo.order.dto;
 
+import com.example.demo.order.OrderStatus;
+
 public class OrderResponse {
 
     private Long id;
 
     private String orderNumber;
 
-    private String status;
+    private OrderStatus status;
 
     private String applicantName;
 
@@ -26,11 +28,11 @@ public class OrderResponse {
         this.orderNumber = orderNumber;
     }
 
-    public String getStatus() {
+    public OrderStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(OrderStatus status) {
         this.status = status;
     }
 

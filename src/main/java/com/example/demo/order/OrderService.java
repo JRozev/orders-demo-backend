@@ -43,7 +43,7 @@ public class OrderService {
         orderRepository.deleteById(id);
     }
 
-    public List<Order> getOrdersByStatus(String status) {
+    public List<Order> getOrdersByStatus(OrderStatus status) {
         return orderRepository.findByStatus(status);
     }
 

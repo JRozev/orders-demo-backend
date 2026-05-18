@@ -110,6 +110,7 @@ Current implemented features:
 - File-based H2 database with persistent demo Order records
 - Search orders by applicant name: GET /api/orders/search?applicantName=Ivan
 - Filter orders by status: GET /api/orders/status?status=NEW
+- Enum support for Order Status (NEW, IN_PROGRESS, APPROVED, REJECTED)
 
 ---
 
@@ -120,6 +121,4 @@ Planned features:
 * PostgreSQL integration
 * Angular frontend
 * Pagination
-* Filtering / Search endpoints
-* Enum for Order Status
 * Spring Security + JWT
