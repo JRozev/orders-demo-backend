@@ -108,6 +108,8 @@ Current implemented features:
 - Service → Repository architecture
 - Global exception handling
 - File-based H2 database with persistent demo Order records
+- Search orders by applicant name: GET /api/orders/search?applicantName=Ivan
+- Filter orders by status: GET /api/orders/status?status=NEW
 
 ---
 

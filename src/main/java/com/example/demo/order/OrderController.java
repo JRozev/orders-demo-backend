@@ -61,4 +61,14 @@ public class OrderController {
     public void deleteOrder(@PathVariable Long id) {
         orderService.deleteOrder(id);
     }
+
+    @GetMapping("/api/orders/status")
+    public List<Order> getOrdersByStatus(@RequestParam String status) {
+        return orderService.getOrdersByStatus(status);
+    }
+
+    @GetMapping("/api/orders/search")
+    public List<Order> searchOrdersByApplicantName(@RequestParam String applicantName) {
+        return orderService.searchOrdersByApplicantName(applicantName);
+    }
 }

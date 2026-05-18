@@ -42,4 +42,12 @@ public class OrderService {
     public void deleteOrder(Long id) {
         orderRepository.deleteById(id);
     }
+
+    public List<Order> getOrdersByStatus(String status) {
+        return orderRepository.findByStatus(status);
+    }
+
+    public List<Order> searchOrdersByApplicantName(String applicantName) {
+        return orderRepository.findByApplicantNameContainingIgnoreCase(applicantName);
+    }
 }
