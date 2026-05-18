@@ -100,10 +100,14 @@ Current implemented features:
 
 - CRUD operations for Orders
 - Validation with @Valid and @NotBlank
+- Custom validation error handling with @ControllerAdvice
 - DTO support (OrderRequest / OrderResponse)
 - Swagger/OpenAPI integration
 - H2 file database persistence
 - Bulk order insert endpoint
+- Service → Repository architecture
+- Global exception handling
+- File-based H2 database with persistent demo Order records
 
 ---
 
@@ -113,6 +117,7 @@ Planned features:
 
 * PostgreSQL integration
 * Angular frontend
-* Validation
-* DTOs
+* Pagination
+* Filtering / Search endpoints
+* Enum for Order Status
 * Spring Security + JWT
